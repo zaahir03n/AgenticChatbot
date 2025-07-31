@@ -25,7 +25,7 @@ def load_langgraph_agenticai_app():
 
     if user_message:
         try:
-
+            print(10)
             # Configure the LLMs
             obj_llm_config = GroqLLM(user_control_input=user_input)
             model = obj_llm_config.get_llm_model()
@@ -38,10 +38,11 @@ def load_langgraph_agenticai_app():
             if not usecase:
                     st.error("Error: No use case selected.")
                     return
+            print(11)
             # Graph Builder
             graph_builder = GraphBuilder(model)
+            print(12)
             try:
-                 print(1)
                  graph = graph_builder.setup_graph(usecase) #based on usecase, which function should i call?
                  print(user_message)
                  DisplayResultStreamlit(usecase,graph,user_message).display_result_on_ui()
